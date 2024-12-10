@@ -11,14 +11,18 @@
             <e p="CameraController.cs" t="Include" />
           </e>
           <e p="Mechanics" t="Include">
-            <e p="AAStation.cs" t="Include" />
-            <e p="BaseBuilder.cs" t="Include" />
-            <e p="BaseManager.cs" t="Include" />
-            <e p="BaseSpawner.cs" t="Include" />
-            <e p="Missile.cs" t="Include" />
-            <e p="PlacementManager.cs" t="Include" />
-            <e p="ShahedController.cs" t="Include" />
-            <e p="ShahedSpawner.cs" t="Include" />
+            <e p="AAR" t="Include">
+              <e p="AAStation.cs" t="Include" />
+              <e p="Missile.cs" t="Include" />
+            </e>
+            <e p="Base(bruhh dont touch it)" t="Include">
+              <e p="BaseSpawner.cs" t="Include" />
+              <e p="PlacementManager.cs" t="Include" />
+            </e>
+            <e p="Shahed" t="Include">
+              <e p="Shahed.cs" t="Include" />
+              <e p="ShahedSpawner.cs" t="Include" />
+            </e>
           </e>
         </e>
         <e p="TextMesh Pro" t="Include">

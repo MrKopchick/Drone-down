@@ -8,22 +8,23 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Mechanics/BaseSpawner.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Mechanics/ShahedSpawner.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Mechanics/PlacementManager.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Mechanics/BaseManager.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Mechanics/BaseBuilder.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Mechanics/Shahed/Shahed.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/Assets/Scripts/Camera/CameraController.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Mechanics/BaseBuilder.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Mechanics/BaseManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Mechanics/ShahedController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Mechanics/BaseBuilder.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Mechanics/ShahedSpawner.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Mechanics/PlacementManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Mechanics/BaseSpawner.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Mechanics/ShahedSpawner.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Mechanics/Shahed/ShahedController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Mechanics/Base(bruhh dont touch it)/PlacementManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Mechanics/Shahed/ShahedSpawner.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Mechanics/Shahed/Shahed.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Mechanics/Base(bruhh dont touch it)/BaseSpawner.cs" />
       </list>
     </option>
   </component>

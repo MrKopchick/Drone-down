@@ -9,20 +9,22 @@ public class PlacementManager : MonoBehaviour
     {
         if (baseSpawner == null || mainCamera == null) return;
 
-        if (Input.mousePosition.x < 0 || Input.mousePosition.x > Screen.width || Input.mousePosition.y < 0 || Input.mousePosition.y > Screen.height)
+        Vector3 mousePos = Input.mousePosition;
+        if (mousePos.x < 0 || mousePos.y < 0 || mousePos.x > Screen.width || mousePos.y > Screen.height)
         {
-            return; // Не робимо Raycast, якщо миша поза екраном
+            return;
         }
 
-        var ray = mainCamera.ScreenPointToRay(Input.mousePosition);
+        Ray ray = mainCamera.ScreenPointToRay(mousePos);
         if (Physics.Raycast(ray, out RaycastHit hit, Mathf.Infinity, baseSpawner.PlacementLayer))
         {
-            var isValid = baseSpawner.CanPlaceBase(hit.point);
+            bool isValid = baseSpawner.CanPlaceBase(hit.point);
             baseSpawner.UpdatePreview(hit.point, isValid);
 
             if (Input.GetMouseButtonDown(0) && isValid)
             {
-                baseSpawner.PlaceBase(hit.point);
+                Quaternion rotation = Quaternion.Euler(0f, mainCamera.transform.eulerAngles.y, 0f);
+                baseSpawner.PlaceBase(hit.point, rotation);
                 baseSpawner.RemovePreview();
             }
         }

@@ -97,15 +97,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e3468a17c714b34a8679207b5ed498d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetPoints:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
   speed: 20
-  diveSpeed: 20
-  diveDistance: 30
-  collisionThreshold: 1
+  detectionRange: 30
 --- !u!65 &7001915681380806917
 BoxCollider:
   m_ObjectHideFlags: 0
