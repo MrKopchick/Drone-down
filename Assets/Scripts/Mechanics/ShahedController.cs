@@ -1,10 +1,8 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class ShahedController : MonoBehaviour
 {
-    public Transform[] targetPoints;
     public float speed = 10f;
     public float diveSpeed = 20f;
     public float diveDistance = 15f;
@@ -12,15 +10,7 @@ public class ShahedController : MonoBehaviour
 
     private Transform targetPoint;
     private bool isDiving = false;
-
-    void Start()
-    {
-        if (targetPoints.Length > 0)
-        {
-            int randomIndex = Random.Range(0, targetPoints.Length);
-            targetPoint = targetPoints[randomIndex];
-        }
-    }
+    private static List<Transform> assignedTargets = new List<Transform>();
 
     void Update()
     {
@@ -46,7 +36,22 @@ public class ShahedController : MonoBehaviour
             if (Vector3.Distance(transform.position, targetPoint.position) <= collisionThreshold)
             {
                 Destroy(gameObject);
+                assignedTargets.Remove(targetPoint);
             }
         }
+    }
+
+    public void AssignTarget(List<Transform> targets)
+    {
+        foreach (var target in targets)
+        {
+            if (!assignedTargets.Contains(target))
+            {
+                targetPoint = target;
+                assignedTargets.Add(target);
+                return;
+            }
+        }
+        Destroy(gameObject);
     }
 }
