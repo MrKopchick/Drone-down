@@ -17,10 +17,8 @@ public class Shahed : MonoBehaviour
 
     void Update()
     {
-        // Якщо ціль знищена або не задана
         if (targetBase == null)
         {
-            // Обираємо нову базу, якщо доступна
             Transform newTarget = GetRandomBase();
             if (newTarget != null)
             {
@@ -28,7 +26,6 @@ public class Shahed : MonoBehaviour
             }
             else
             {
-                // Летимо прямо, якщо баз немає
                 transform.position += transform.forward * speed * Time.deltaTime;
                 return;
             }
@@ -53,8 +50,8 @@ public class Shahed : MonoBehaviour
 
         if (Vector3.Distance(transform.position, targetBase.position) <= collisionThreshold)
         {
-            Destroy(targetBase.gameObject); // Знищення бази
-            Destroy(gameObject); // Знищення шахеда
+            Destroy(targetBase.gameObject);
+            Destroy(gameObject);
         }
     }
 

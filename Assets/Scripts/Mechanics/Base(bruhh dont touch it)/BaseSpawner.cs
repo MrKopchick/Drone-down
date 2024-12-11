@@ -10,20 +10,19 @@ public class BaseSpawner : MonoBehaviour
     [SerializeField] private float maxSlopeAngle = 30f;
 
     private GameObject previewBase;
-    private List<Transform> existingBases = new List<Transform>(); // Список існуючих баз
+    private List<Transform> existingBases = new List<Transform>();
 
     public LayerMask PlacementLayer => placementLayer;
 
     private const string BaseKeyPrefix = "Base_";
 
-    public List<Transform> GetExistingBases() // Додаємо цей метод
+    public List<Transform> GetExistingBases()
     {
         return existingBases;
     }
     
     void Update()
     {
-        // Очищаємо список від знищених об'єктів
         existingBases.RemoveAll(baseTransform => baseTransform == null);
     }
 
@@ -53,7 +52,6 @@ public class BaseSpawner : MonoBehaviour
     {
         foreach (var existingBase in existingBases)
         {
-            // Перевіряємо, чи є база в списку і чи не була вона знищена
             if (existingBase != null && Vector3.Distance(position, existingBase.position) < minDistanceBetweenBases)
             {
                 return false;
@@ -78,10 +76,10 @@ public class BaseSpawner : MonoBehaviour
     public void PlaceBase(Vector3 position, Quaternion rotation)
     {
         var newBase = Instantiate(basePrefab, position, rotation);
-        existingBases.Add(newBase.transform); // Додаємо нову базу в список
+        existingBases.Add(newBase.transform);
 
         SaveBasePosition(newBase.transform);
-        NotifyShaheds(); // Сповіщаємо шахедів про нову базу
+        NotifyShaheds();
     }
 
     private void SaveBasePosition(Transform baseTransform)
@@ -117,20 +115,15 @@ public class BaseSpawner : MonoBehaviour
             index++;
         }
     }
-
-    // Сповіщаємо всіх шахедів про нові бази
+    
     public void NotifyShaheds()
     {
-        // Перевіряємо, чи є шахеди в сцені
         Shahed[] shaheds = FindObjectsOfType<Shahed>();
-    
-        // Сповіщаємо кожного шахеда про нову базу
+        
         foreach (Shahed shahed in shaheds)
         {
-            // Знайти першу базу як ціль
             if (existingBases.Count > 0)
             {
-                // Передаємо трансформ першої бази
                 shahed.StartHuntingBase(existingBases[0]); 
             }
         }

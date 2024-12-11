@@ -34,10 +34,8 @@ public class CameraController : MonoBehaviour
 
     void Start()
     {
-        // Встановлюємо початкову позицію камери
         transform.position = initialPosition;
-
-        // Встановлюємо початкове обертання камери
+        
         transform.rotation = Quaternion.Euler(defaultRotationX, defaultRotationY, 0f);
         _currentRotationX = defaultRotationX;
         _currentRotationY = defaultRotationY;
@@ -47,14 +45,12 @@ public class CameraController : MonoBehaviour
     void Update()
     {
         Vector3 pos = transform.position;
-
-        // Згладжений рух по висоті
+        
         float scroll = Input.GetAxis("Mouse ScrollWheel");
         _targetHeight -= scroll * scrollSpeed;
         _targetHeight = Mathf.Clamp(_targetHeight, minHeight, maxHeight);
         pos.y = Mathf.SmoothDamp(pos.y, _targetHeight, ref _heightVelocity, scrollSmoothTime);
-
-        // Рух камери в площині, враховуючи напрямок обертання
+        
         float currentSpeed = basePanSpeed * Mathf.InverseLerp(minHeight, maxHeight, pos.y);
         Vector3 forward = transform.forward;
         Vector3 right = transform.right;
@@ -90,8 +86,7 @@ public class CameraController : MonoBehaviour
 
         if (Input.GetMouseButtonUp(2))
             _isDragging = false;
-
-        // Ротація камери
+        
         if (Input.GetMouseButton(1))
         {
             float rotationX = Input.GetAxis("Mouse Y") * rotationSpeed * Time.deltaTime;
@@ -104,12 +99,9 @@ public class CameraController : MonoBehaviour
 
             transform.rotation = Quaternion.Euler(_currentRotationX, _currentRotationY, 0f);
         }
-
-        // Обмеження руху в межах панорами
+        
         pos.x = Mathf.Clamp(pos.x, -panLimit.x, panLimit.x);
         pos.z = Mathf.Clamp(pos.z, -panLimit.y, panLimit.y);
-
-        // Застосування нової позиції
         transform.position = pos;
     }
 }
