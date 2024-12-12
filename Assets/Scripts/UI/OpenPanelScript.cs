@@ -1,86 +1,73 @@
+using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using DG.Tweening;
 
 public class OpenPanelScript : MonoBehaviour
 {
-    [Header("Panel Settings")]
-    [SerializeField] private RectTransform panelRectTransform;
-    [SerializeField] private Transform finalPosition;
-    [SerializeField] private Transform startPosition;
-    [SerializeField] private float duration = 0.5f;
-    [SerializeField] private bool horizontal = true;
-    [SerializeField] private bool vertical = false;
-
-    [Header("Spawn Settings")]
-    [SerializeField] private GameObject objectToSpawn;
-    [SerializeField] private Transform spawnPosition;
-
-    private bool isActivated = false;
-
-    public void TogglePanel()
+    [System.Serializable]
+    public class ButtonPanelPair
     {
-        if (isActivated)
+        public Button button; 
+        public RectTransform panelPrefab; 
+    }
+
+    public List<ButtonPanelPair> buttonPanelPairs; 
+    public Transform spawnPoint; 
+    public Transform finalPoint; 
+    public float animationDuration = 0.5f; 
+
+    private RectTransform currentPanel;
+    private Button currentButton; 
+
+    private void Start()
+    {
+        foreach (var pair in buttonPanelPairs)
         {
-            ClosePanel();
+            pair.button.onClick.AddListener(() => OnButtonClicked(pair));
+        }
+    }
+
+    private void OnButtonClicked(ButtonPanelPair pair)
+    {
+        if (currentPanel != null)
+        {
+            if (currentButton == pair.button)
+            {
+                CloseCurrentPanel();
+                return;
+            }
+            CloseCurrentPanel(() => OpenPanel(pair));
         }
         else
         {
-            OpenPanel();
-            SpawnObject();
+            OpenPanel(pair);
         }
     }
 
-    private void OpenPanel()
+    private void OpenPanel(ButtonPanelPair pair)
     {
-        MovePanel(finalPosition);
-        isActivated = true;
+        currentButton = pair.button;
+        
+        currentPanel = Instantiate(pair.panelPrefab, spawnPoint.position, Quaternion.identity, spawnPoint.parent);
+        currentPanel.anchoredPosition = spawnPoint.GetComponent<RectTransform>().anchoredPosition;
+        
+        currentPanel.DOAnchorPos(finalPoint.GetComponent<RectTransform>().anchoredPosition, animationDuration)
+            .SetEase(Ease.OutQuad);
     }
 
-    private void ClosePanel()
+    private void CloseCurrentPanel(System.Action onComplete = null)
     {
-        MovePanel(startPosition);
-        isActivated = false;
-    }
-
-    private void MovePanel(Transform targetPosition)
-    {
-        if (panelRectTransform == null)
-        {
-            Debug.LogError("panelRectTransform is not assigned.");
-            return;
-        }
-
-        if (panelRectTransform.parent == null)
-        {
-            Debug.LogError("panelRectTransform has no parent.");
-            return;
-        }
-
-        if (targetPosition == null)
-        {
-            Debug.LogError("targetPosition is not assigned.");
-            return;
-        }
-
-        Vector3 localPosition = panelRectTransform.parent.InverseTransformPoint(targetPosition.position);
-
-        if (horizontal)
-        {
-            panelRectTransform.DOAnchorPosX(localPosition.x, duration);
-        }
-        if (vertical)
-        {
-            panelRectTransform.DOAnchorPosY(localPosition.y, duration);
-        }
-    }
-
-
-    private void SpawnObject()
-    {
-        if (objectToSpawn != null && spawnPosition != null)
-        {
-            GameObject spawnedObject = Instantiate(objectToSpawn, spawnPosition.position, spawnPosition.rotation, this.transform);
-            spawnedObject.transform.localPosition = spawnPosition.localPosition;
-        }
+        if (currentPanel == null) return;
+        
+        currentPanel.DOAnchorPos(spawnPoint.GetComponent<RectTransform>().anchoredPosition, animationDuration)
+            .SetEase(Ease.InQuad)
+            .OnComplete(() =>
+            {
+                Destroy(currentPanel.gameObject);
+                currentPanel = null;
+                currentButton = null;
+                onComplete?.Invoke();
+            });
     }
 }

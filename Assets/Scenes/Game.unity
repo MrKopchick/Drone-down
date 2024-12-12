@@ -252,7 +252,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -673.06696, y: 0}
+  m_AnchoredPosition: {x: -673.06696, y: 15}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &80166340
@@ -1503,7 +1503,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 9.281, y: 0.654}
+  m_AnchoredPosition: {x: -1.4440823, y: 0.654}
   m_SizeDelta: {x: 142.31, y: 112.829}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &318252145
@@ -1529,8 +1529,8 @@ MonoBehaviour:
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 0}
     m_HighlightedColor: {r: 0, g: 0, b: 0, a: 0.2627451}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0, g: 0, b: 0, a: 0.27450982}
+    m_SelectedColor: {r: 0, g: 0, b: 0, a: 0}
     m_DisabledColor: {r: 0, g: 0, b: 0, a: 0}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -1550,7 +1550,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 521968257}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: OpenPanelScript, Assembly-CSharp
         m_MethodName: TogglePanel
         m_Mode: 1
@@ -1706,8 +1706,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 433960380}
+  - component: {fileID: 433960381}
   m_Layer: 5
-  m_Name: commonPoints
+  m_Name: PanelManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1735,6 +1736,26 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &433960381
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 433960379}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b8486018aa9ee2489d632dd2aafdf86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buttonPanelPairs:
+  - button: {fileID: 318252145}
+    panelPrefab: {fileID: 2921512609711457754, guid: 440ba64b0398bbc429b9dea860db8219, type: 3}
+  - button: {fileID: 775151532}
+    panelPrefab: {fileID: 2921512609711457754, guid: f23d35014570667408059c6332829a9a, type: 3}
+  spawnPoint: {fileID: 1260518475}
+  finalPoint: {fileID: 28732054}
+  animationDuration: 0.35
 --- !u!1 &460335279
 GameObject:
   m_ObjectHideFlags: 0
@@ -1799,7 +1820,7 @@ MonoBehaviour:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 0}
     m_HighlightedColor: {r: 0, g: 0, b: 0, a: 0.2627451}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 0}
     m_DisabledColor: {r: 0, g: 0, b: 0, a: 0}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -1866,7 +1887,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 521968256}
-  - component: {fileID: 521968257}
   m_Layer: 5
   m_Name: Economy
   m_TagString: Untagged
@@ -1888,33 +1908,13 @@ RectTransform:
   m_Children:
   - {fileID: 318252144}
   m_Father: {fileID: 1260708340}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: -626, y: 418}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &521968257
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 521968255}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2b8486018aa9ee2489d632dd2aafdf86, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  panelRectTransform: {fileID: 2921512609711457754, guid: 440ba64b0398bbc429b9dea860db8219, type: 3}
-  finalPosition: {fileID: 28732054}
-  startPosition: {fileID: 1260518475}
-  duration: 1
-  horizontal: 1
-  vertical: 0
-  objectToSpawn: {fileID: 7983362962546120868, guid: 440ba64b0398bbc429b9dea860db8219, type: 3}
-  spawnPosition: {fileID: 1260518475}
 --- !u!1 &525663548
 GameObject:
   m_ObjectHideFlags: 0
@@ -2696,7 +2696,7 @@ MonoBehaviour:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 0}
     m_HighlightedColor: {r: 0, g: 0, b: 0, a: 0.2627451}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 0}
     m_DisabledColor: {r: 0, g: 0, b: 0, a: 0}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -3266,7 +3266,7 @@ RectTransform:
   - {fileID: 1828517035}
   - {fileID: 631310183}
   m_Father: {fileID: 1260708340}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -6886,7 +6886,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -1340.9432, y: 0}
+  m_AnchoredPosition: {x: -1340.9432, y: 15}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1260708339
@@ -6918,8 +6918,8 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1399809803}
-  - {fileID: 881855580}
   - {fileID: 521968256}
+  - {fileID: 881855580}
   - {fileID: 259295846}
   - {fileID: 1831328393}
   - {fileID: 570761879}
@@ -8828,8 +8828,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4286545791
-  m_fontColor: {r: 0.49803925, g: 0.49803925, b: 0.49803925, a: 1}
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -10493,7 +10493,7 @@ MonoBehaviour:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 0}
     m_HighlightedColor: {r: 0, g: 0, b: 0, a: 0.2627451}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 0}
     m_DisabledColor: {r: 0, g: 0, b: 0, a: 0}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
