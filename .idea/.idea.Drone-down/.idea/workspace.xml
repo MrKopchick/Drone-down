@@ -10,6 +10,7 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/TogglePanels.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Mechanics/Shahed/Shahed.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Mechanics/Spawner/SpawnableObject.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -28,6 +29,9 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/UI/OpenPanelScript.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Mechanics/Shahed/ShahedSpawner.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/UI/TogglePanels.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Mechanics/Spawner/SpawnableObject.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Mechanics/Spawner/SpawnButton.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Mechanics/Spawner/SpawnManager.cs" />
       </list>
     </option>
   </component>

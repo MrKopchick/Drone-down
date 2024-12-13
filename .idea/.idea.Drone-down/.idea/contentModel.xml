@@ -74,6 +74,11 @@
               <e p="Shahed.cs" t="Include" />
               <e p="ShahedSpawner.cs" t="Include" />
             </e>
+            <e p="Spawner" t="Include">
+              <e p="SpawnableObject.cs" t="Include" />
+              <e p="SpawnButton.cs" t="Include" />
+              <e p="SpawnManager.cs" t="Include" />
+            </e>
           </e>
           <e p="UI" t="Include">
             <e p="OpenPanelScript.cs" t="Include" />
