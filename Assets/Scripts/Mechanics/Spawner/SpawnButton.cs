@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class SpawnButton : MonoBehaviour
 {
@@ -49,13 +50,24 @@ public class SpawnButton : MonoBehaviour
 
         if (button != null)
         {
-            button.GetComponentInChildren<Text>().text = isSpawning ? "Cancel" : "Spawn";
+            // Оновлення тексту для TextMeshPro
+            TMP_Text buttonText = button.GetComponentInChildren<TMP_Text>();
+            if (buttonText != null)
+            {
+                buttonText.text = isSpawning ? "Cancel" : "Spawn";
+            }
+            else
+            {
+                Debug.LogError("TMP_Text component not found in button's children.");
+            }
         }
     }
 
     public void ResetButtonState()
     {
         isSpawning = false;
+        Debug.Log($"Resetting button state for {gameObject.name}");
         UpdateButtonState();
     }
+
 }

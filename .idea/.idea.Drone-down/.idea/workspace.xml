@@ -24,14 +24,15 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/Mechanics/Shahed/ShahedController.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Mechanics/Base(bruhh dont touch it)/PlacementManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Camera/CameraController.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Mechanics/Base(bruhh dont touch it)/BaseSpawner.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Mechanics/Shahed/Shahed.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/UI/OpenPanelScript.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Mechanics/Shahed/ShahedSpawner.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/UI/TogglePanels.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Mechanics/Spawner/SpawnableObject.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Mechanics/Spawner/SpawnButton.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Mechanics/Shahed/ShahedSpawner.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Mechanics/Base(bruhh dont touch it)/Base.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Mechanics/Base(bruhh dont touch it)/BaseSpawner.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Mechanics/Spawner/SpawnManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Mechanics/Spawner/SpawnButton.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Mechanics/Shahed/Shahed.cs" />
       </list>
     </option>
   </component>

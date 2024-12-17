@@ -67,8 +67,8 @@
               <e p="Missile.cs" t="Include" />
             </e>
             <e p="Base(bruhh dont touch it)" t="Include">
+              <e p="Base.cs" t="Include" />
               <e p="BaseSpawner.cs" t="Include" />
-              <e p="PlacementManager.cs" t="Include" />
             </e>
             <e p="Shahed" t="Include">
               <e p="Shahed.cs" t="Include" />

@@ -20,20 +20,24 @@ public class SpawnManager : MonoBehaviour
     {
         if (activeButton != null && activeButton != button)
         {
-            activeButton.ResetButtonState();
+            activeButton.ResetButtonState(); 
         }
 
         currentSpawnableObject = spawnableObject;
         activeButton = button;
 
+        // Оновлюємо прев'ю
         if (previewObject != null)
+        {
             Destroy(previewObject);
+        }
 
         if (currentSpawnableObject != null && currentSpawnableObject.previewPrefab != null)
         {
             previewObject = Instantiate(currentSpawnableObject.previewPrefab);
         }
     }
+
 
 
     private void Update()
@@ -103,16 +107,16 @@ public class SpawnManager : MonoBehaviour
     private void PlaceObject(Vector3 position)
     {
         if (currentSpawnableObject == null || currentSpawnableObject.prefab == null) return;
-
+        
         Instantiate(currentSpawnableObject.prefab, position, Quaternion.identity);
         RemovePreview();
-        currentSpawnableObject = null;
-
         if (activeButton != null)
         {
-            activeButton.ResetButtonState();
-            activeButton = null; 
+            activeButton.ResetButtonState(); 
         }
+        SetSpawnableObject(null);
     }
+
+
 
 }
